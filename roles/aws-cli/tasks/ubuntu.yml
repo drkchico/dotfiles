@@ -1,0 +1,10 @@
+---
+- name: Install Python pip package
+  ansible.builtin.package:
+    name: python3-pip
+    state: present  # Ensure python3-pip package is installed
+
+- name: Install AWS CLI using pip
+  ansible.builtin.pip:
+    name: awscli
+    state: present  # Ensure awscli is installed

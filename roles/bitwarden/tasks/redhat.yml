@@ -1,0 +1,10 @@
+---
+- name: Download Bitwarden RPM package
+  ansible.builtin.get_url:
+    url: "https://vault.bitwarden.com/download/?app=desktop&platform=linux"
+    dest: "/tmp/bitwarden.rpm"
+  delegate_to: localhost
+
+- name: Install Bitwarden RPM package
+  ansible.builtin.yum:
+    name: "/tmp/bitwarden.rpm"

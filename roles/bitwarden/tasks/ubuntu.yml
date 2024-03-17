@@ -1,0 +1,10 @@
+---
+- name: Download Bitwarden Debian package
+  ansible.builtin.get_url:
+    url: "https://vault.bitwarden.com/download/?app=desktop&platform=linux"
+    dest: "/tmp/bitwarden.deb"
+  delegate_to: localhost
+
+- name: Install Bitwarden Debian package
+  ansible.builtin.apt:
+    deb: "/tmp/bitwarden.deb"

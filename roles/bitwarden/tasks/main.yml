@@ -1,0 +1,12 @@
+---
+- name: Run Ubuntu Tasks
+  ansible.builtin.import_tasks: ubuntu.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Run RedHat Tasks
+  ansible.builtin.import_tasks: redhat.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: Run Arch Tasks
+  ansible.builtin.import_tasks: redhat.yml
+  when: ansible_os_family == 'Archlinux'
