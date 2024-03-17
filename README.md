@@ -3,7 +3,7 @@
 
 ## Goals
 
-Provide fully automated `Ubuntu|Arch` development environment that is easy to set up and maintain.
+Provide fully automated `Ubuntu|Arch|Red Hat (wip)` development environment that is easy to set up and maintain.
 
 ### Why Ansible?
 
