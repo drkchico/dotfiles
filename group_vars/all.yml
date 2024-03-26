@@ -14,8 +14,8 @@ default_roles:
   # - git
   # - go
   - helm
-  - k8s
-  - k9s
+  # - k8s
+  # - k9s
   - lazygit
   - lua
   - nala
@@ -36,7 +36,7 @@ default_roles:
   - tmux
   # - zellij
   - spotify
-  # - zoxide
+  - zoxide
 
 git_user_name: "Jeff Pacheco"
 git_user_email: !vault |
