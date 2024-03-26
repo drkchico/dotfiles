@@ -14,8 +14,8 @@ default_roles:
   # - git
   # - go
   - helm
-  # - k8s
-  # - k9s
+  - k8s
+  - k9s
   - lazygit
   - lua
   - nala
