@@ -93,7 +93,7 @@ go:
     # - package: github.com/stillmatic/chat@latest
     #   cmd: chat
 
-ssh_key_item:
+ssh_key:
   id_rsa: !vault |
     $ANSIBLE_VAULT;1.1;AES256
     32333538346661656165386232616164393466616661666661623365613164306365383562613965
