@@ -4,7 +4,7 @@ default_roles:
   # - alacritty
   - aws-cli
   - asciiquarium
-  - bitwarden
+  # - bitwarden
   # - bash
   - bat
   - docker
