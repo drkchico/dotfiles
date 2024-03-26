@@ -4,14 +4,14 @@ default_roles:
   # - alacritty
   - aws-cli
   - asciiquarium
-  # - bitwarden
-  # - bash
+  - bitwarden
+  - bash
   - bat
   - docker
   - flatpak
   - fonts
   - fzf
-  # - git
+  - git
   # - go
   - helm
   # - k8s
