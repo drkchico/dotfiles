@@ -7,4 +7,4 @@
 
 - name: Install Bitwarden Debian package
   ansible.builtin.apt:
-    deb: "/tmp/bitwarden.deb"
+    deb: "/tmp/bitwarden.deb --quiet"
