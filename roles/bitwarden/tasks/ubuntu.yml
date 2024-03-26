@@ -2,9 +2,12 @@
 - name: Download Bitwarden Debian package
   ansible.builtin.get_url:
     url: "https://vault.bitwarden.com/download/?app=desktop&platform=linux"
-    dest: "/tmp/bitwarden.deb"
-  delegate_to: localhost
+    dest: "/tmp/bitwarden.AppImage"
 
-- name: Install Bitwarden Debian package
-  command: dpkg -i --force-confdef /tmp/bitwarden.deb
-  become: yes
+- name: Set executable permissions
+  file:
+    path: "/tmp/bitwarden.AppImage"
+    mode: "+x"
+
+- name: Run the AppImage
+  command: "/tmp/bitwarden.AppImage"
