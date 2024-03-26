@@ -1,13 +1,7 @@
 ---
-- name: Download Bitwarden Debian package
-  ansible.builtin.get_url:
-    url: "https://vault.bitwarden.com/download/?app=desktop&platform=linux"
-    dest: "/tmp/bitwarden.AppImage"
-
-- name: Set executable permissions
-  file:
-    path: "/tmp/bitwarden.AppImage"
-    mode: "+x"
-
-- name: Run the AppImage
-  command: "/tmp/bitwarden.AppImage"
+# - name: Download Bitwarden Debian package
+#   ansible.builtin.get_url:
+#     url: "https://vault.bitwarden.com/download/?app=desktop&platform=linux"
+#     dest: "/tmp/bitwarden.AppImage"
+- name: Install Bitwarden Flatpak
+  command: flatpak install --noninteractive bitwarden
