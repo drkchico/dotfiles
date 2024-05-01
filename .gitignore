@@ -3,3 +3,4 @@ vault-password.txt
 
 roles/neovim/files/lazy-lock.json
 .obsidian/
+.vscode/
