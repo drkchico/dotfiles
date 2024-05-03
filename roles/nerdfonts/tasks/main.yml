@@ -9,8 +9,9 @@
   ansible.builtin.get_url:
     url: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
     dest: "{{ ansible_env.HOME }}/.fonts/Hack.zip"
+    mode: '0644'
 
-- name: Download and install Hack Nerd Font    
+- name: Download and install Hack Nerd Font
   ansible.builtin.unarchive:
     src: "{{ ansible_env.HOME }}/.fonts/Hack.zip"
     dest: "{{ ansible_env.HOME }}/.fonts/"
