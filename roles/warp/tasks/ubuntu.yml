@@ -5,7 +5,7 @@
     dest: "/tmp/{{ ansible_date_time.epoch }}.deb"
 
 - name: Install Debian package
-  ansible.builtin,apt:
+  ansible.builtin.apt:
     deb: "/tmp/{{ ansible_date_time.epoch }}.deb"
     state: present
   become: true
