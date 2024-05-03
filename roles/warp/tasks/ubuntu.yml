@@ -3,24 +3,29 @@
   apt:
     name: ["wget", "gpg"]
     state: present
+  become: true
 
 - name: Download Warp key
   get_url:
     url: https://releases.warp.dev/linux/keys/warp.asc
     dest: /tmp/warp.asc
+  become: true
 
 - name: Add Warp key to apt keyrings
   shell: gpg --dearmor /tmp/warp.asc > /etc/apt/keyrings/warpdotdev.gpg
   args:
     creates: /etc/apt/keyrings/warpdotdev.gpg
+  become: true
 
 - name: Add Warp repository to sources list
   shell: echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/warpdotdev.gpg] https://releases.warp.dev/linux/deb stable main" > /etc/apt/sources.list.d/warpdotdev.list
   args:
     creates: /etc/apt/sources.list.d/warpdotdev.list
+  become: true
 
 - name: Update apt cache and install Warp Terminal
   apt:
     update_cache: true
     name: warp-terminal
     state: present
+  become: true
