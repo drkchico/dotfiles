@@ -5,11 +5,12 @@
     state: directory
     mode: '0644'
 
-- name: Download and install GPG key
+- name: Download GPG key
   ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/eza-community/eza/main/deb.asc
     dest: /etc/apt/keyrings/gierens.gpg
     mode: "0644"
+- name: Install GPG key
   ansible.builtin.shell: gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
 
 - name: Add repository
