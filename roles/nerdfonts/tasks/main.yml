@@ -29,5 +29,5 @@
   when: hack_installed is succeeded
 
 - name: Update font cache
-  ansible.builtin.font_config:
-    update_cache: true
+  ansible.builtin.command:
+    cmd: fc-cache -f -v
