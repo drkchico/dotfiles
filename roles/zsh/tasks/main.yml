@@ -10,7 +10,7 @@
 
 - name: "Starship | Configure Starship"
   ansible.builtin.copy:
-    src: files
+    src: files/
     dest: "{{ ansible_user_dir }}/.zsh/"
     mode: "0644"
     directory_mode: "0755"
