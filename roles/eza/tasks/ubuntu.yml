@@ -1,10 +1,10 @@
 ---
-- name: Create keyrings directory
-  ansible.builtin.file:
-    path: /etc/apt/keyrings
-    state: directory
-    mode: '0644'
-  become: true
+# - name: Create keyrings directory
+#   ansible.builtin.file:
+#     path: /etc/apt/keyrings
+#     state: directory
+#     mode: '0644'
+#   become: true
 
 # - name: Download GPG key
 #   ansible.builtin.get_url:
@@ -14,7 +14,7 @@
 #   become: true
 
 
-- name: Add Microsoft GPG key
+- name: Add eza GPG key
   ansible.builtin.apt_key:
     url: https://raw.githubusercontent.com/eza-community/eza/main/deb.asc
     state: present
@@ -22,7 +22,7 @@
 
 - name: Add Visual Studio Code repository
   ansible.builtin.apt_repository:
-    repo: deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main
+    repo: deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de/stable/main
     state: present
   become: true
 
