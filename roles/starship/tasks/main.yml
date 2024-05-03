@@ -8,7 +8,7 @@
   ignore_errors: true
 
 - name: Install Starship if not already installed
-  ansible.builtin.command: /tmp/install.sh
+  ansible.builtin.command: /tmp/install.sh -y
   args:
     creates: /usr/local/bin/starship
   notify: Configure Starship
