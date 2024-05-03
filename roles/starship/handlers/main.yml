@@ -1,0 +1,12 @@
+---
+- name: Configure Starship
+  ansible.builtin.copy:
+    src: files/starship.toml
+    dest: "{{ ansible_user_dir }}/.config/starship.toml"
+    mode: "0644"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  notify: Restart shell
+
+- name: Restart shell
+  ansible.builtin.shell: exec $SHELL -l

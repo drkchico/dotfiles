@@ -1,19 +1,14 @@
 ---
-- name: Download and install Starship
-  get_url:
+- name: Download Starship installer script
+  ansible.builtin.get_url:
     url: https://starship.rs/install.sh
     dest: /tmp/install.sh
-    mode: '0755'
+    mode: "0755"
+  register: download_result
+  ignore_errors: true
 
-- name: Install Starship
-  shell: /tmp/install.sh
+- name: Install Starship if not already installed
+  ansible.builtin.command: /tmp/install.sh
   args:
     creates: /usr/local/bin/starship
-
-- name: "Starship | Configure Starship"
-  ansible.builtin.copy:
-    src: files
-    dest: "{{ ansible_user_dir }}/.config/"
-    mode: "0644"
-    directory_mode: "0755"
-    force: true
+  notify: Configure Starship
