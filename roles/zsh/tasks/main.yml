@@ -10,15 +10,22 @@
 
 - name: "ZSH | Configure ZSH"
   ansible.builtin.copy:
-    src: files/
+    src: files/zsh/
     dest: "{{ ansible_user_dir }}/.zsh/"
     mode: "0644"
     directory_mode: "0755"
     force: true
+
+- name: "ZSH | Configure ZSH"
+  ansible.builtin.copy:
+    src: files/.zshrc
+    dest: "{{ ansible_user_dir }}/"
+    mode: "0644"
+    directory_mode: "0755"
+    force: true    
 
 - name: "ZSH | Set default terminal"
   ansible.builtin.user:
     name: "{{ host_user }}"
     shell: /usr/bin/zsh
   become: true
-  
