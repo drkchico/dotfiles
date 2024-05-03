@@ -11,7 +11,7 @@ default_roles:
   - flatpak
   # - fonts
   # - fzf
-  - git
+  # - git
   # - go
   - helm
   - k8s
