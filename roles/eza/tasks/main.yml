@@ -1,4 +1,11 @@
 ---
+- name: Ensure fonts directory
+  ansible.builtin.file:
+    path: "/etc/apt/sources.list.d/gierens.list"
+    state: file
+    mode: '0644'
+  become: true
+
 - name: Run Ubuntu Tasks
   ansible.builtin.import_tasks: ubuntu.yml
   when: ansible_os_family == 'Debian'
