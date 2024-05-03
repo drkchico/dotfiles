@@ -15,3 +15,10 @@
     mode: "0644"
     directory_mode: "0755"
     force: true
+
+- name: "ZSH | Set default terminal"
+  ansible.builtin.user:
+    name: "{{ host_user }}"
+    shell: /usr/bin/zsh
+  become: true
+  

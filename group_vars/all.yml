@@ -3,41 +3,44 @@ default_roles:
   # - 1password
   # - alacritty
   - aws-cli
-  - asciiquarium
+  # - asciiquarium
   - bitwarden
-  - bash
-  - bat
+  # - bash
+  # - bat
   - docker
-  - flatpak
-  - fonts
-  - fzf
+  # - flatpak
+  # - fonts
+  # - fzf
   # - git
   # - go
   - helm
   - k8s
   - k9s
   - lazygit
-  - lua
-  - nala
-  - neofetch
-  - neovim
+  # - lua
+  # - nala
+  # - neofetch
+  # - neovim
   # - npm
-  - nvm
+  - nerdfonts
+  # - nvm
   - obsidian
-  - pwsh
+  # - pwsh
   - python
   # - ruby
   # - rust
   - ssh
   - sshfs
+  - starship
   - terraform
-  - tldr
-  - tmate
-  - tmux
+  # - tldr
+  # - tmate
+  # - tmux
   # - zellij
   - spotify
   - vscode
-  - zoxide
+  - warp
+  # - zoxide
   - zsh
 
 git_user_name: "Jeff Pacheco"
