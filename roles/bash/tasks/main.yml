@@ -59,7 +59,7 @@
 - name: "Bash | Set default terminal"
   ansible.builtin.user:
     name: "{{ host_user }}"
-    shell: /usr/bin/bash
+    shell: /usr/bin/zsh
   become: true
 
 - name: "Bash | Set private variables"
