@@ -4,9 +4,12 @@
     url: https://starship.rs/install.sh
     dest: /tmp/install.sh
     mode: '0755'
+
+- name: Install  Starship
   shell: /tmp/install.sh
   args:
     creates: /usr/local/bin/starship
+
 - name: "Starship | Configure Starship"
   ansible.builtin.copy:
     src: files
