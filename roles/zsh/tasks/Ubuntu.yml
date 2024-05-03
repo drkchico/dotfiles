@@ -5,14 +5,3 @@
       - zsh
     state: present
   become: true
-  when: ansible_distribution_version >= '21.04'
-
-- name: "Dot Files | Copy Dot Files"
-  ansible.builtin.copy:
-    dest: "{{ ansible_user_dir }}/.zsh/{{ dof_files_item.key }}"
-    content: "{{ dof_files_item.value }}"
-    mode: "0600"
-  no_log: true
-  loop_control:
-    loop_var: dof_files_item
-  with_items: "{{ dof_files | default({}) | dict2items }}"
