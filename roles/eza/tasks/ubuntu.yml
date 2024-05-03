@@ -14,7 +14,7 @@
 #   become: true
 
 - name: Install GPG key
-  ansible.builtin.shell: wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg -y
+  ansible.builtin.shell: wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
   become: true
 
 - name: Add repository
