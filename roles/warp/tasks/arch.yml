@@ -1,0 +1,20 @@
+---
+- name: Install Warp Terminal (Arch Linux)
+  become: true
+  tasks:
+    - name: Add Warp repository to pacman.conf
+      shell: echo -e '\n[warpdotdev]\nServer = https://releases.warp.dev/linux/pacman/$repo/$arch' >> /etc/pacman.conf
+      args:
+        creates: /etc/pacman.conf
+
+    - name: Receive Warp key
+      shell: pacman-key -r "linux-maintainers@warp.dev"
+
+    - name: Sign Warp key
+      shell: pacman-key --lsign-key "linux-maintainers@warp.dev"
+
+    - name: Update pacman cache and install Warp Terminal
+      pacman:
+        update_cache: true
+        name: warp-terminal
+        state: present

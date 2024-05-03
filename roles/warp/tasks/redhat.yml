@@ -1,0 +1,22 @@
+---
+- name: Install Warp Terminal (RPM-based)
+  become: true
+  tasks:
+    - name: Import Warp key
+      rpm_key:
+        state: present
+        key: https://releases.warp.dev/linux/keys/warp.asc
+
+    - name: Add Warp repository
+      yum_repository:
+        name: warpdotdev
+        baseurl: https://releases.warp.dev/linux/rpm/stable
+        enabled: true
+        gpgcheck: true
+        gpgkey: https://releases.warp.dev/linux/keys/warp.asc
+
+    - name: Install Warp Terminal
+      dnf:
+        name: warp-terminal
+        state: present
+        
