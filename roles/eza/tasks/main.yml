@@ -2,7 +2,7 @@
 - name: Ensure fonts directory
   ansible.builtin.file:
     path: "/etc/apt/sources.list.d/gierens.list"
-    state: present
+    state: touch
     mode: '0644'
   become: true
 
