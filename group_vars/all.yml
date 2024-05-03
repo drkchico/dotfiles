@@ -8,7 +8,7 @@ default_roles:
   # - bash
   # - bat
   - docker
-  # - flatpak
+  - flatpak
   # - fonts
   # - fzf
   # - git
