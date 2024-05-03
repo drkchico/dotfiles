@@ -25,5 +25,9 @@
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.fonts/Hack.zip"
     state: absent
-  become: true    
+  become: true
   when: hack_installed is succeeded
+
+- name: Update font cache
+  ansible.builtin.font_config:
+    update_cache: true
