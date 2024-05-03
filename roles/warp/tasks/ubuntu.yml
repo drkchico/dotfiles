@@ -29,3 +29,4 @@
     name: warp-terminal
     state: present
   become: true
+  
