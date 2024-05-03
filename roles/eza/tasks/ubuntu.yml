@@ -13,15 +13,17 @@
 #     mode: "0644"
 #   become: true
 
-- name: Install GPG key
-  ansible.builtin.shell: yes | wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+
+- name: Add Microsoft GPG key
+  ansible.builtin.apt_key:
+    url: https://raw.githubusercontent.com/eza-community/eza/main/deb.asc
+    state: present
   become: true
 
-- name: Add repository
-  ansible.builtin.lineinfile:
-    dest: /etc/apt/sources.list.d/gierens.list
-    line: "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main"
-    mode: "0644"
+- name: Add Visual Studio Code repository
+  ansible.builtin.apt_repository:
+    repo: deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main
+    state: present
   become: true
 
 - name: Update apt cache
