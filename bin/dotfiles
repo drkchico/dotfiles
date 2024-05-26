@@ -162,6 +162,9 @@ case $ID in
   ubuntu)
     ubuntu_setup
     ;;
+  elementary)
+    ubuntu_setup
+    ;;    
   arch)
     arch_setup
     ;;
