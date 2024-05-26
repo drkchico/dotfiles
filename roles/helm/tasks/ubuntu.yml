@@ -1,34 +1,25 @@
 ---
-- name: Helm | Add Helm GPG key
-  ansible.builtin.apt_key:
-    url: https://baltocdn.com/helm/signing.asc
-    state: present
-    keyring: /usr/share/keyrings/helm.gpg
+- name: Install Helm
   become: true
-
-- name: Helm | Install apt-transport-https
-  ansible.builtin.apt:
+  apt:
     name: apt-transport-https
     state: present
-  become: true
 
-- name: Helm | Get OS Architecture
-  ansible.builtin.set_fact:
-    os_arch: "{{ ansible_machine | replace('x86_64', 'amd64') | replace('aarch64', 'arm64') }}"
+- name: Add Helm GPG key
+  apt_key:
+    url: (link unavailable)
+    state: present
 
-- name: Helm | Add Helm APT repository
-  ansible.builtin.apt_repository:
-    repo: "deb [arch={{ os_arch }} signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main"
-    filename: helm-stable-debian
-  become: true
+- name: Add Helm repository
+  apt_repository:
+    repo: "deb [arch={{ ansible_architecture }} signed-by=/usr/share/keyrings/helm.gpg] (link unavailable) all main"
+    state: present
 
-- name: Helm | Update APT cache
-  ansible.builtin.apt:
-    update_cache: true
-  become: true
+- name: Update package list
+  apt:
+    update_cache: yes
 
-- name: Helm | Install Helm
-  ansible.builtin.apt:
+- name: Install Helm
+  apt:
     name: helm
     state: present
-  become: true
