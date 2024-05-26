@@ -1,12 +1,18 @@
 ---
+# File: roles/brave_browser/tasks/main.yml
 - name: Install Brave Browser with Flatpak
   become: true
-  flatpak:
-    name: com.brave.Browser
-    state: present
-  flatpak_repo:
-    name: flathub
-    state: present
-  package:
-    name: flatpak
-    state: present
+  - name: Install flatpak
+    package:
+      name: flatpak
+      state: present
+
+  - name: Add flathub repository
+    flatpak_repo:
+      name: flathub
+      state: present
+
+  - name: Install Brave Browser
+    flatpak:
+      name: com.brave.Browser
+      state: present
