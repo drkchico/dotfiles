@@ -5,12 +5,8 @@
     name: flatpak
     state: present
 
-- name: Add flathub repository
-  flatpak_repo:
-    name: flathub
-    state: present
-
 - name: Install Brave Browser
-  flatpak:
+  community.general.flatpak:
     name: com.brave.Browser
     state: present
+    method: system
