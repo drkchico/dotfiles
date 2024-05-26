@@ -11,3 +11,15 @@
     flatpakrepo_url: "https://flathub.org/repo/flathub.flatpakrepo"
     state: present
   become: true
+
+- name: Install multiple packages
+  community.general.flatpak:
+    name:
+      - com.bitwarden.desktop
+      - com.discordapp.Discord
+      - com.google.Chrome
+      - com.microsoft.Teams
+      - com.slack.Slack
+      - io.podman_desktop.PodmanDesktop
+      - org.gnome.World.PikaBackup
+      - us.zoom.Zoom
