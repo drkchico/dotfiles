@@ -23,3 +23,5 @@
       - io.podman_desktop.PodmanDesktop
       - org.gnome.World.PikaBackup
       - us.zoom.Zoom
+    state: present
+  become: true
